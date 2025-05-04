@@ -28,7 +28,41 @@ function WordDefinition({ wordData }) {
     
     audio.play();
   };
+  const copyDefinition = (text) => {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        // Show a temporary tooltip or message
+        const tooltip = document.createElement('div');
+        tooltip.className = 'copy-tooltip';
+        tooltip.textContent = 'کپی شد!';
+        document.body.appendChild(tooltip);
+        
+        setTimeout(() => {
+          document.body.removeChild(tooltip);
+        }, 1500);
+      },
+      (err) => {
+        console.error('خطا در کپی متن: ', err);
+      }
+    );
+  };
   
+  // In the JSX, add a copy button to each definition
+  {meaning.definitions.map((def, defIdx) => (
+    <li key={defIdx} className="definition">
+      <div className="definition-text">
+        <p>{def.definition}</p>
+        <button 
+          className="copy-btn" 
+          onClick={() => copyDefinition(def.definition)}
+          aria-label="کپی معنی"
+        >
+          📋
+        </button>
+      </div>
+      {def.example && <p className="example">"{def.example}"</p>}
+    </li>
+  ))}
   return (
     <div className="word-data">
       <div className="word-header">

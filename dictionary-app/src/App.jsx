@@ -42,6 +42,12 @@ function App() {
     setIsLoading(true)
     setError(null)
     
+    // Scroll to top of container
+    const container = document.querySelector('.container')
+    if (container) {
+      container.scrollTop = 0
+    }
+    
     try {
       const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word.trim()}`)
       
