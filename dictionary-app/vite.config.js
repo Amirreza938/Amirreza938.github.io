@@ -8,10 +8,11 @@ export default defineConfig({
   build: {
     sourcemap: true,
     assetsDir: 'assets',
-    // Ensure that assets are loaded relatively
+    // Ensure that assets are loaded correctly
     rollupOptions: {
       output: {
-        manualChunks: undefined
+        manualChunks: undefined,
+        assetFileNames: 'assets/[name].[hash].[ext]'
       }
     }
   }
