@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import './styles/App.css'
 import useDebounce from './hooks/useDebounce'
+import useLocalStorage from './hooks/useLocalStorage'
 import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import WordDefinition from './components/WordDefinition'
+import RecentSearches from './components/RecentSearches';
 import Footer from './components/Footer'
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
   const [wordData, setWordData] = useState(null)
+  const [recentSearches, setRecentSearches] = useLocalStorage('recentSearches', [])
   
   const debouncedSearchTerm = useDebounce(searchTerm, 500)
   
@@ -45,12 +48,30 @@ function App() {
       
       const data = await response.json()
       setWordData(data)
+      
+      // Add to recent searches
+      addToRecentSearches(word.trim())
     } catch (err) {
       setError(err.message)
       setWordData(null)
     } finally {
       setIsLoading(false)
     }
+  }
+
+  const addToRecentSearches = (word) => {
+    setRecentSearches(prev => {
+      // If the word already exists, remove it
+      const filtered = prev.filter(item => item.toLowerCase() !== word.toLowerCase())
+      
+      // Add the word to the beginning of the array
+      // and keep only the latest 5 searches
+      return [word, ...filtered].slice(0, 5)
+    })
+  }
+
+  const handleRecentSearchClick = (word) => {
+    setSearchTerm(word)
   }
 
   const toggleDarkMode = () => setDarkMode(!darkMode)
@@ -64,6 +85,14 @@ function App() {
           setSearchTerm={setSearchTerm} 
           isLoading={isLoading} 
         />
+        
+        {!isLoading && !wordData && !error && (
+          <RecentSearches 
+            searches={recentSearches} 
+            onSearchClick={handleRecentSearchClick} 
+          />
+        )}
+        
         <div className="results-section">
           {error && <div className="error">{error}</div>}
           {!isLoading && !error && wordData && (

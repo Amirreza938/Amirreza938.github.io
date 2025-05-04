@@ -306,3 +306,64 @@ body {
     transform: scale(1);
   }
 }
+.recent-searches {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.light-mode .recent-searches {
+  background-color: var(--card-light);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .recent-searches {
+  background-color: var(--card-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.recent-searches h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.search-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.search-tag {
+  padding: 0.5rem 1rem;
+  background: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 1px solid;
+}
+
+.light-mode .search-tag {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: rgba(74, 111, 165, 0.05);
+}
+
+.dark-mode .search-tag {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: rgba(74, 111, 165, 0.1);
+}
+
+.search-tag:hover {
+  transform: translateY(-2px);
+}
+
+.light-mode .search-tag:hover {
+  background-color: rgba(74, 111, 165, 0.1);
+}
+
+.dark-mode .search-tag:hover {
+  background-color: rgba(74, 111, 165, 0.2);
+}
