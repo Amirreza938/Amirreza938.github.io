@@ -8,13 +8,12 @@
     <meta name="theme-color" content="#4a6fa5" />
     <title>English Dictionary</title>
     <script type="text/javascript">
-      // Single-page application routing fix for GitHub Pages
+      // Handle redirect from 404.html
       (function() {
-        // Only apply redirect if we're on GitHub Pages and have URL parameters following ?/
-        const redirect = sessionStorage.redirect;
+        var redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;
         if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
+          history.replaceState(null, null, redirect.split('/?/').pop());
         }
       })();
     </script>

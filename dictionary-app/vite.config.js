@@ -5,4 +5,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/dictionary-app/',
+  build: {
+    sourcemap: true,
+    assetsDir: 'assets',
+    // Ensure that assets are loaded relatively
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  }
 })
