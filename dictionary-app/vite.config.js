@@ -4,15 +4,15 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/dictionary-app/',
+  base: '/Amirreza938.github.io/', // Make sure this matches your GitHub repository name exactly
   build: {
     sourcemap: true,
     assetsDir: 'assets',
-    // Ensure that assets are loaded correctly
+    outDir: 'dist',
+    // Ensure assets are correctly referenced
     rollupOptions: {
       output: {
-        manualChunks: undefined,
-        assetFileNames: 'assets/[name].[hash].[ext]'
+        manualChunks: undefined
       }
     }
   }

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/dictionary-app/dictionary-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%/dictionary-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Online English Dictionary - Search for word meanings" />
     <meta name="theme-color" content="#4a6fa5" />
@@ -13,13 +13,13 @@
         var redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;
         if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect.split('/?/').pop());
+          history.replaceState(null, null, redirect.substring(redirect.indexOf('/dictionary-app/')));
         }
       })();
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="./src/main.jsx"></script>
   </body>
 </html>
