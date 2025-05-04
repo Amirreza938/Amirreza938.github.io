@@ -1,11 +1,11 @@
 function Header({ darkMode, toggleDarkMode }) {
     return (
       <header className="header">
-        <h1>واژه‌نامه پارسی</h1>
+        <h1>English Dictionary</h1>
         <button 
           className="theme-toggle" 
           onClick={toggleDarkMode}
-          aria-label={darkMode ? 'فعال کردن حالت روشن' : 'فعال کردن حالت تاریک'}
+          aria-label={darkMode ? 'Enable light mode' : 'Enable dark mode'}
         >
           {darkMode ? '☀️' : '🌙'}
         </button>

@@ -9,7 +9,7 @@ function SearchBar({ searchTerm, setSearchTerm, isLoading }) {
           <input 
             type="text" 
             className="search-input" 
-            placeholder="واژه مورد نظر را جستجو کنید..."
+            placeholder="Search for a word..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -17,13 +17,13 @@ function SearchBar({ searchTerm, setSearchTerm, isLoading }) {
             <button 
               className="clear-btn" 
               onClick={handleClearSearch}
-              aria-label="پاک کردن جستجو"
+              aria-label="Clear search"
             >
               ✕
             </button>
           )}
         </div>
-        {isLoading && <div className="loading">در حال جستجو...</div>}
+        {isLoading && <div className="loading">Searching...</div>}
       </div>
     );
   }

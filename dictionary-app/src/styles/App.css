@@ -18,11 +18,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+    font-family: 'Arial', 'Helvetica', sans-serif;
   }
   
   body {
-    direction: rtl;
+    direction: ltr;
   }
   
   .app {
@@ -180,7 +180,7 @@
   
   .definitions {
     list-style-position: inside;
-    padding-right: 1rem;
+    padding-left: 1rem;
   }
   
   .definition {
@@ -481,7 +481,7 @@
 
 .clear-btn {
   position: absolute;
-  left: 10px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
@@ -495,3 +495,5 @@
 .clear-btn:hover {
   opacity: 1;
 }
+
+/* Remove RTL/LTR specific classes as they're no longer needed */

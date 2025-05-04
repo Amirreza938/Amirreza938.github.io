@@ -2,8 +2,8 @@ function EmptyState() {
     return (
       <div className="empty-state">
         <div className="empty-icon">📚</div>
-        <h3>به واژه‌نامه پارسی خوش آمدید</h3>
-        <p>لطفاً یک واژه انگلیسی را در کادر بالا جستجو کنید.</p>
+        <h3>Welcome to the English Dictionary</h3>
+        <p>Please enter a word in the search box above.</p>
       </div>
     );
   }

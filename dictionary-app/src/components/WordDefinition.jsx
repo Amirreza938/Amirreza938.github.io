@@ -35,7 +35,7 @@ function WordDefinition({ wordData }) {
         // Show a temporary tooltip or message
         const tooltip = document.createElement('div');
         tooltip.className = 'copy-tooltip';
-        tooltip.textContent = 'کپی شد!';
+        tooltip.textContent = 'Copied!';
         document.body.appendChild(tooltip);
         
         setTimeout(() => {
@@ -43,7 +43,7 @@ function WordDefinition({ wordData }) {
         }, 1500);
       },
       (err) => {
-        console.error('خطا در کپی متن: ', err);
+        console.error('Error copying text: ', err);
       }
     );
   };
@@ -51,7 +51,7 @@ function WordDefinition({ wordData }) {
   return (
     <div className="word-data">
       <div className="word-header">
-        <h2>{word.word}</h2>
+        <h2 className="ltr-text">{word.word}</h2>
         {hasAudio && (
           <button 
             className={`audio-btn ${isPlaying ? 'playing' : ''}`} 

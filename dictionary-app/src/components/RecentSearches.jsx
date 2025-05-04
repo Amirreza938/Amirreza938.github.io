@@ -3,7 +3,7 @@ function RecentSearches({ searches, onSearchClick }) {
     
     return (
       <div className="recent-searches">
-        <h3>جستجوهای اخیر</h3>
+        <h3>Recent Searches</h3>
         <div className="search-tags">
           {searches.map((search, index) => (
             <button 
