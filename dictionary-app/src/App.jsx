@@ -5,7 +5,9 @@ import useLocalStorage from './hooks/useLocalStorage'
 import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import WordDefinition from './components/WordDefinition'
-import RecentSearches from './components/RecentSearches';
+import RecentSearches from './components/RecentSearches'
+import LoadingState from './components/LoadingState'
+import EmptyState from './components/EmptyState'
 import Footer from './components/Footer'
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
       searchWord(debouncedSearchTerm)
     } else {
       setWordData(null)
+      setError(null)
     }
   }, [debouncedSearchTerm])
   
@@ -76,6 +79,9 @@ function App() {
 
   const toggleDarkMode = () => setDarkMode(!darkMode)
 
+  const showRecents = !isLoading && !wordData && !error && recentSearches.length > 0
+  const showEmptyState = !isLoading && !wordData && !error && !searchTerm && recentSearches.length === 0
+
   return (
     <div className={`app ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
@@ -86,7 +92,7 @@ function App() {
           isLoading={isLoading} 
         />
         
-        {!isLoading && !wordData && !error && (
+        {showRecents && (
           <RecentSearches 
             searches={recentSearches} 
             onSearchClick={handleRecentSearchClick} 
@@ -94,10 +100,12 @@ function App() {
         )}
         
         <div className="results-section">
+          {isLoading && <LoadingState />}
           {error && <div className="error">{error}</div>}
           {!isLoading && !error && wordData && (
             <WordDefinition wordData={wordData} />
           )}
+          {showEmptyState && <EmptyState />}
         </div>
       </main>
       <Footer />
