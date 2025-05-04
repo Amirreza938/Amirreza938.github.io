@@ -28,6 +28,7 @@ function WordDefinition({ wordData }) {
     
     audio.play();
   };
+  
   const copyDefinition = (text) => {
     navigator.clipboard.writeText(text).then(
       () => {
@@ -47,22 +48,6 @@ function WordDefinition({ wordData }) {
     );
   };
   
-  // In the JSX, add a copy button to each definition
-  {meaning.definitions.map((def, defIdx) => (
-    <li key={defIdx} className="definition">
-      <div className="definition-text">
-        <p>{def.definition}</p>
-        <button 
-          className="copy-btn" 
-          onClick={() => copyDefinition(def.definition)}
-          aria-label="کپی معنی"
-        >
-          📋
-        </button>
-      </div>
-      {def.example && <p className="example">"{def.example}"</p>}
-    </li>
-  ))}
   return (
     <div className="word-data">
       <div className="word-header">
@@ -89,7 +74,16 @@ function WordDefinition({ wordData }) {
           <ul className="definitions">
             {meaning.definitions.map((def, defIdx) => (
               <li key={defIdx} className="definition">
-                <p>{def.definition}</p>
+                <div className="definition-text">
+                  <p>{def.definition}</p>
+                  <button 
+                    className="copy-btn" 
+                    onClick={() => copyDefinition(def.definition)}
+                    aria-label="کپی معنی"
+                  >
+                    📋
+                  </button>
+                </div>
                 {def.example && <p className="example">"{def.example}"</p>}
               </li>
             ))}
