@@ -603,8 +603,6 @@ body {
   opacity: 1;
   background-color: rgba(98, 70, 234, 0.1);
 }
-
-/* Add gradient background effect */
 .light-mode.app {
   background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(240,240,255,1) 100%);
 }
@@ -613,7 +611,6 @@ body {
   background: linear-gradient(135deg, rgba(22,22,26,1) 0%, rgba(30,30,46,1) 100%);
 }
 
-/* Add glass morphism effect for cards */
 .light-mode .word-data,
 .light-mode .recent-searches {
   backdrop-filter: blur(10px);

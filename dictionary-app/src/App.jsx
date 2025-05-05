@@ -41,8 +41,6 @@ function App() {
     
     setIsLoading(true)
     setError(null)
-    
-    // Scroll to top of container
     const container = document.querySelector('.container')
     if (container) {
       container.scrollTop = 0
@@ -72,9 +70,6 @@ function App() {
     setRecentSearches(prev => {
       // If the word already exists, remove it
       const filtered = prev.filter(item => item.toLowerCase() !== word.toLowerCase())
-      
-      // Add the word to the beginning of the array
-      // and keep only the latest 5 searches
       return [word, ...filtered].slice(0, 5)
     })
   }
@@ -118,12 +113,5 @@ function App() {
     </div>
   )
 }
-
-// App implements:
-// - Theme switching (dark/light mode)
-// - Search functionality with debounce
-// - Recent searches tracking
-// - Error handling
-// - Responsive layout
 
 export default App

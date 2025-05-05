@@ -6,8 +6,6 @@ function WordDefinition({ wordData }) {
   if (!wordData || wordData.length === 0) return null;
   
   const word = wordData[0];
-  
-  // Find an audio URL if available
   const audioUrl = word.phonetics?.find(p => p.audio)?.audio || '';
   const hasAudio = audioUrl && audioUrl.length > 0;
   
@@ -32,7 +30,6 @@ function WordDefinition({ wordData }) {
   const copyDefinition = (text) => {
     navigator.clipboard.writeText(text).then(
       () => {
-        // Show a temporary tooltip or message
         const tooltip = document.createElement('div');
         tooltip.className = 'copy-tooltip';
         tooltip.textContent = 'Copied!';
