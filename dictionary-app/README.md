@@ -2,7 +2,7 @@
 
 A modern English dictionary web application built with React that allows users to search for word definitions, pronunciations, and examples.
 
-![Dictionary App Screenshot](./screenshots/app-screenshot.png)
+![Dictionary App Screenshot](./ScreenShots/DarkModeOutput.png)
 
 ## Features
 
