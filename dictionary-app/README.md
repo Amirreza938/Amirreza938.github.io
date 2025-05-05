@@ -13,10 +13,6 @@ A modern English dictionary web application built with React that allows users t
 - Dark/light mode toggle
 - History of recent searches
 
-## Demo
-
-The application is deployed and available at: [https://yourusername.github.io/dictionary-app/](https://yourusername.github.io/dictionary-app/)
-
 ## Technologies Used
 
 - **React** - UI library
@@ -74,26 +70,6 @@ fetch('https://api.dictionaryapi.dev/api/v2/entries/en/hello')
   .then(response => response.json())
   .then(data => console.log(data))
 ```
-
-## Deployment
-
-The app is configured for deployment to GitHub Pages. To deploy:
-
-```bash
-# Build the application
-npm run build
-
-# Deploy to GitHub Pages
-npm run deploy
-```
-
-### GitHub Pages Configuration
-
-The application includes special handling for GitHub Pages:
-
-1. A custom 404.html page that redirects to the main application
-2. Path normalization in main.jsx to handle GitHub Pages routing
-3. Base path configuration in vite.config.js
 
 ## Browser Support
 
