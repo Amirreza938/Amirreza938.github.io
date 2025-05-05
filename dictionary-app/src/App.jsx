@@ -119,4 +119,11 @@ function App() {
   )
 }
 
+// App implements:
+// - Theme switching (dark/light mode)
+// - Search functionality with debounce
+// - Recent searches tracking
+// - Error handling
+// - Responsive layout
+
 export default App
